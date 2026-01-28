@@ -30,6 +30,7 @@ jobs:
           script: |
             mkdir -p ~/2-tier
             cd 2-tier
+            docker-compose down -v --remove-orphans
             git clone https://x-access-token:${{ secrets.GH_PAT }}@github.com/${{ secrets.GH_USERNAME }}/2-tier-app-nginx-reverse-progy.git .
             docker-compose pull
             docker-compose up -d
